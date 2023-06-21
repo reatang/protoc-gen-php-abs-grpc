@@ -1,6 +1,6 @@
 module github/reatang/protoc-gen-php-abs-grpc
 
-go 1.20
+go 1.18
 
 require (
 	github.com/golang/protobuf v1.5.3

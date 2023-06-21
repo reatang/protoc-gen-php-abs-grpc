@@ -2,6 +2,14 @@
 
 支持php grpc包 `https://github.com/reatang/grpc-php-abstract` 的客户端生成器
 
+## 安装
+
+这个项目的安装，依赖golang（懒得帮你们生成各种操作系统和架构的了）
+
+```shell
+> go install github.com/reatang/protoc-gen-php-abs-grpc/cmd/protoc-gen-php-abs-grpc@latest
+```
+
 ## 使用
 
 ```shell
