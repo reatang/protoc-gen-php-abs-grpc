@@ -1,0 +1,17 @@
+# {{.Name}}
+
+## 拥有的消息体
+
+{{range $message := .Messages }}
+message: {{$message.Name}}
+{{end}}
+
+{{range $service := .Services }}
+## {{$service.Name}}
+
+### 服务函数列表
+{{range $method := $service.Methods }}
+method: {{$method.Output}} {{$method.Name}}({{$method.Input}})
+{{end}}
+
+{{end}}

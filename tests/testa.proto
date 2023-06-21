@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package tests.testa;
+
+message Request {
+  string ping = 1;
+}
+
+message Response {
+  string pong = 1;
+}
+
+service TestService {
+  rpc Ping(Request) returns(Response);
+}

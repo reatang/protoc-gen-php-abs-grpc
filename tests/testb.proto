@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package tests.testb;
+
+option go_package="./testb";
+
+// php 选项
+option php_class_prefix = "PB\\";
+option php_metadata_namespace = "Tests\\TestB";
+option php_namespace = "Tests\\TestB";
+option php_generic_services = true;
+
+message TestBRequest {
+  string ping = 1;
+}
+
+message TestBResponse {
+  string pong = 1;
+}
