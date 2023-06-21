@@ -1,4 +1,4 @@
-module github/reatang/protoc-gen-php-abs-grpc
+module github.com/reatang/protoc-gen-php-abs-grpc
 
 go 1.18
 
