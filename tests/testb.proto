@@ -4,7 +4,7 @@ package tests.testb;
 
 option go_package="./testb";
 
-// php 选项
+// 带 php 选项的
 option php_class_prefix = "PB\\";
 option php_metadata_namespace = "Tests\\TestB";
 option php_namespace = "Tests\\TestB";

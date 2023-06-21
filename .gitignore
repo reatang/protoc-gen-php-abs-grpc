@@ -1,5 +1,4 @@
 
 .idea
 tests/gen
-cmd/protoc-gen-reatang-demo/protoc-gen-reatang-demo
-req.json
+cmd/protoc-gen-php-abs-grpc/protoc-gen-php-abs-grpc

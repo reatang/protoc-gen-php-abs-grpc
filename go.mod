@@ -1,4 +1,4 @@
-module github/reatang/protobuf-plugin-template
+module github/reatang/protoc-gen-php-abs-grpc
 
 go 1.20
 

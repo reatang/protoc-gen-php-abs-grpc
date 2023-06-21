@@ -1,0 +1,25 @@
+<?php
+// GENERATED CODE -- DO NOT EDIT!
+
+namespace {{ .ClassBase.Namespace }};
+
+use Reatang\GrpcPHPAbstract\Client\GrpcBaseClient;
+
+// 请求参数
+{{range $className := .GetUses -}}
+use {{$className.FullName}};
+{{end}}
+/**
+ * @property {{ .GrpcClassName }} $client
+ *
+{{range $method := .Methods -}}
+ {{" *"}} @method {{ $method.Output.Type.Name }} {{ $method.Name }}({{ $method.Input.Type.Name }} $request)
+{{end}} *
+ */
+class {{ .ClassBase.Name }} extends GrpcBaseClient
+{
+    public function __construct($host, array $interceptors = [])
+    {
+        parent::__construct($host, {{ .GrpcClassName }}::class, $interceptors);
+    }
+}
