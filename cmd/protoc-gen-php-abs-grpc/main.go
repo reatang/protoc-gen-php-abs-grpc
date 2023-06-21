@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github/reatang/protoc-gen-php-abs-grpc/internal/php"
-	"github/reatang/protoc-gen-php-abs-grpc/pkg/generator"
-	"github/reatang/protoc-gen-php-abs-grpc/pkg/log"
-	"github/reatang/protoc-gen-php-abs-grpc/pkg/protoio"
 	"os"
+
+	"github.com/reatang/protoc-gen-php-abs-grpc/internal/php"
+	"github.com/reatang/protoc-gen-php-abs-grpc/pkg/generator"
+	"github.com/reatang/protoc-gen-php-abs-grpc/pkg/log"
+	"github.com/reatang/protoc-gen-php-abs-grpc/pkg/protoio"
 )
 
 func main() {

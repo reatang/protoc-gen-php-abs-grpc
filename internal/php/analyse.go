@@ -2,11 +2,12 @@ package php
 
 import (
 	"bytes"
-	"github/reatang/protoc-gen-php-abs-grpc/pkg/generator"
 	"path"
 	"path/filepath"
 	"strings"
 	"text/template"
+
+	"github.com/reatang/protoc-gen-php-abs-grpc/pkg/generator"
 
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
