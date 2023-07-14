@@ -18,8 +18,8 @@ use {{$className.FullName}};
  */
 class {{ .ClassBase.Name }} extends GrpcBaseClient
 {
-    public function __construct($host, array $interceptors = [])
+    public function __construct($host, array $interceptors = [], array $options = [])
     {
-        parent::__construct($host, {{ .GrpcClassName }}::class, $interceptors);
+        parent::__construct($host, {{ .GrpcClassName }}::class, $interceptors, $options);
     }
 }
