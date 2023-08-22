@@ -2,9 +2,12 @@ package php
 
 import (
 	"errors"
+	"strings"
 )
 
 // pb名映射class名管理器
+
+var ErrNameIsPHPKeyword = errors.New("message or method name is php keyword")
 
 var namesManager *NamesManager
 
@@ -35,4 +38,19 @@ func (nm *NamesManager) MustGet(pbName string) *ClassBase {
 	} else {
 		panic(err)
 	}
+}
+
+// 列举了一些常用的可能会被设置成名字的关键字
+func isPHPKeyword(name string) error {
+	switch strings.ToLower(name) {
+	case "isset":
+	case "empty":
+	case "default":
+	case "global":
+	case "list":
+	case "map":
+		return nil
+	}
+
+	return ErrNameIsPHPKeyword
 }

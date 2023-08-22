@@ -16,6 +16,11 @@ type ClassBase struct {
 }
 
 func NewClassBase(pbName, namespace, prefix, name string) *ClassBase {
+	// 如果名称包含php的关键字，则报出警告
+	if err := isPHPKeyword(name); err != nil {
+		panic(err)
+	}
+
 	cb := &ClassBase{pbName: pbName, namespace: namespace, prefix: prefix, name: name}
 	namesManager.Add(cb)
 
