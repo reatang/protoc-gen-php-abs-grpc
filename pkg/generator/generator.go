@@ -4,7 +4,12 @@ import (
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/pluginpb"
 )
+
+// SupportedFeatures 标记生成器的特性
+var SupportedFeatures = uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
 
 type GenerateFile interface {
 	GetFile() ([]*plugin.CodeGeneratorResponse_File, error)
@@ -51,6 +56,9 @@ func (p *ProtoFileGenerator) Generate(analyser string, req *plugin.CodeGenerator
 
 		resp.File = append(resp.File, generated...)
 	}
+
+	// 设置参数
+	resp.SupportedFeatures = proto.Uint64(SupportedFeatures)
 
 	return resp, nil
 }
