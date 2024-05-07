@@ -22,7 +22,7 @@ class {{ .ClassBase.Name }} extends GatewayBaseClient
         parent::__construct($host, $interceptors);
 
         {{range $method := .Methods -}}
-        $this->addRoute("{{ $method.Output.Type.Name }}", "{{ $method.GoogleApiHttpOption.Path }}", {{ $method.Output.Type.Name }}::class);
+        $this->addRoute("{{ $method.Name }}", "{{ $method.GoogleApiHttpOption.Path }}", {{ $method.Output.Type.Name }}::class);
         {{end}}
     }
 }
