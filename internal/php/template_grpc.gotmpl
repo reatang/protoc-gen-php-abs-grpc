@@ -13,7 +13,7 @@ use {{$className.FullName}};
  * @property {{ .GrpcClassName }} $client
  *
 {{range $method := .Methods -}}
- {{" *"}} @method {{ $method.Output.Type.Name }} {{ $method.Name }}({{ $method.Input.Type.Name }} $request)
+ {{" *"}} @method {{ $method.Output.Type.Name }} {{ $method.Name }}({{ $method.Input.Type.Name }} $request, array $opts = [])
 {{end}} *
  */
 class {{ .ClassBase.Name }} extends GrpcBaseClient

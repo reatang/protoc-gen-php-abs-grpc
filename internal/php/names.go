@@ -2,6 +2,7 @@ package php
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 )
 
@@ -43,14 +44,15 @@ func (nm *NamesManager) MustGet(pbName string) *ClassBase {
 // 列举了一些常用的可能会被设置成名字的关键字
 func isPHPKeyword(name string) error {
 	switch strings.ToLower(name) {
-	case "isset":
-	case "empty":
-	case "default":
-	case "global":
-	case "list":
-	case "map":
-		return nil
+	case "map", "abstract", "and", "array", "as", "break", "callable", "case", "catch", "class", "clone", "const",
+		"continue", "declare", "default", "die", "do", "echo", "else", "elseif", "empty", "enddeclare", "endfor",
+		"endforeach", "endif", "endswitch", "endwhile", "eval", "exit", "extends", "final", "finally", "fn", "for",
+		"foreach", "function", "global", "goto", "if", "implements", "include", "include_once", "instanceof", "insteadof",
+		"interface", "isset", "list", "match", "namespace", "new", "or", "print", "private", "protected", "public",
+		"readonly", "require", "require_once", "return", "static", "switch", "throw", "trait", "try", "unset", "use",
+		"var", "while", "xor", "yield":
+		return fmt.Errorf("%w, name: %s", ErrNameIsPHPKeyword, name)
 	}
 
-	return ErrNameIsPHPKeyword
+	return nil
 }
