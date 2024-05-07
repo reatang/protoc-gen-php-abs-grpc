@@ -10,6 +10,8 @@
 > go install github.com/reatang/protoc-gen-php-abs-grpc/cmd/protoc-gen-php-abs-grpc@latest
 ```
 
+grpc_php_plugin编译：[传送门](https://grpc.io/docs/languages/php/basics/)
+
 ## 使用
 
 ```shell
