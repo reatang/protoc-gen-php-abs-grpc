@@ -1,0 +1,28 @@
+<?php
+// GENERATED CODE -- DO NOT EDIT!
+
+namespace {{ .ClassBase.Namespace }};
+
+use Reatang\GrpcPHPAbstract\Client\GatewayBaseClient;
+
+// 请求参数
+{{range $className := .GetUses -}}
+use {{$className.FullName}};
+{{end}}
+/**
+ *
+{{range $method := .Methods -}}
+ {{" *"}} @method {{ $method.Output.Type.Name }} {{ $method.Name }}({{ $method.Input.Type.Name }} $request, array $opts = [])
+{{end}} *
+ */
+class {{ .ClassBase.Name }} extends GatewayBaseClient
+{
+    public function __construct($host, array $interceptors = [])
+    {
+        parent::__construct($host, $interceptors);
+
+        {{range $method := .Methods -}}
+        $this->addRoute("{{ $method.Output.Type.Name }}", "{{ $method.GoogleApiHttpOption.Path }}", {{ $method.Output.Type.Name }}::class);
+        {{end}}
+    }
+}

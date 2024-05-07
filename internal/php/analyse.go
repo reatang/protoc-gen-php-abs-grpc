@@ -15,6 +15,7 @@ import (
 
 const Analyse = "php_grpc"
 const GenTypeGRPC = "grpc"
+const GenTypeGRPCGateway = "gateway"
 
 // GrpcClassFile PHP box grpc 文件生成器
 type GrpcClassFile struct {
@@ -30,6 +31,8 @@ func (c *GrpcClassFile) GetFile() ([]*plugin.CodeGeneratorResponse_File, error) 
 	var tmpl *template.Template
 	if c.genType == GenTypeGRPC {
 		tmpl = GrpcTemplate()
+	} else if c.genType == GenTypeGRPCGateway {
+		tmpl = GrpcGatewayTemplate()
 	} else {
 		panic("[PHP_ABS_GRPC] genType [" + c.genType + "] don't support")
 	}

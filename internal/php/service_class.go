@@ -5,6 +5,8 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
+	"google.golang.org/genproto/googleapis/api/annotations"
+	"google.golang.org/protobuf/proto"
 )
 
 // 标准的 service class
@@ -21,10 +23,16 @@ type ServiceMethodArgument struct {
 	IsRepeated bool
 }
 
+type GoogleApiHttpOption struct {
+	Path string
+}
+
 type ServiceMethod struct {
 	Name   string
 	Input  *ServiceMethodArgument
 	Output *ServiceMethodArgument
+
+	GoogleApiHttpOption
 }
 
 type ServiceClass struct {
@@ -76,6 +84,14 @@ func (s *ServiceClass) AddMethod(methodPB *descriptor.MethodDescriptorProto) {
 	if methodPB.InputType != nil {
 		m.Output = &ServiceMethodArgument{
 			Type: &MessageClass{ClassBase: namesManager.MustGet(*methodPB.OutputType)},
+		}
+	}
+
+	if methodPB.GetOptions() != nil {
+		if opt := proto.GetExtension(methodPB.GetOptions(), annotations.E_Http); opt != nil {
+			if rule, ok := opt.(*annotations.HttpRule); ok {
+				m.GoogleApiHttpOption = GoogleApiHttpOption{Path: rule.GetPost()}
+			}
 		}
 	}
 
