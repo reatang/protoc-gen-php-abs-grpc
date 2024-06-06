@@ -1,4 +1,4 @@
-
 .idea
+.vscode
 tests/gen
-cmd/protoc-gen-php-abs-grpc/protoc-gen-php-abs-grpc
+protoc-gen-php-abs-grpc
